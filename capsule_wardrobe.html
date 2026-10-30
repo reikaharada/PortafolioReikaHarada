@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reika Harada // Digital Capsule Wardrobe 2026</title>
+
+ 
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            crimson: '#D81118',
+            crimsonDark: '#9E0B10',
+            crimsonSoft: '#FBF0F0',
+            crtBg: '#FDFBF7',
+            creamGlow: '#FFF9E8',
+            charcoal: '#181616',
+          },
+          fontFamily: {
+            serifTitle: ['"Bodoni Moda"', 'serif'],
+            editorial: ['"Instrument Serif"', 'serif'],
+            script: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    
+    body {
+      background-color: #0b0a0a;
+      background-image: 
+        radial-gradient(ellipse at center, #1b1717 0%, #070606 100%);
+      color: #181616;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      margin: 0;
+      padding: 12px;
+    }
+
+    .crt-tv-frame {
+      border: 14px solid #1c1919;
+      border-radius: 46px;
+      box-shadow: 
+        0 0 0 2px #332d2d,
+        0 25px 65px -10px rgba(0, 0, 0, 0.9),
+        inset 0 0 45px rgba(0, 0, 0, 0.45);
+      position: relative;
+      background: #FDFBF7;
+      overflow: hidden;
+    }
+
+    @media (min-width: 640px) {
+      .crt-tv-frame {
+        border-width: 22px;
+        border-radius: 64px;
+      }
+    }
+
+    
+    .crt-meadow-backdrop {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 50% 85%, rgba(228, 201, 137, 0.45) 0%, rgba(216, 17, 24, 0.05) 55%, transparent 80%),
+        linear-gradient(180deg, #FDFBF7 0%, #FAF6EE 45%, #F4EAD4 85%, #E6D7B4 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    
+    .crt-scanlines {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.065) 50%
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+      z-index: 60;
+      opacity: 0.85;
+    }
+
+    
+    .crt-glass-reflection {
+      position: absolute;
+      inset: 0;
+      box-shadow: 
+        inset 0 0 80px rgba(0, 0, 0, 0.22),
+        inset 0 0 16px rgba(0, 0, 0, 0.35);
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    
+    .ticket-badge {
+      border: 1.5px solid #D81118;
+      color: #D81118;
+      border-radius: 9999px;
+      padding: 4px 14px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .ticket-badge:hover {
+      background: #D81118;
+      color: #FFFFFF;
+    }
+
+    
+    .stamp-tag {
+      border: 1.5px solid #D81118;
+      color: #D81118;
+      transform: rotate(6deg);
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+  
+    .btn-crimson {
+      background-color: #D81118;
+      color: #FFFFFF;
+      border: 1.5px solid #D81118;
+      border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 14px rgba(216, 17, 24, 0.25);
+    }
+    .btn-crimson:hover {
+      background-color: #9E0B10;
+      border-color: #9E0B10;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(216, 17, 24, 0.35);
+    }
+    .btn-crimson:active {
+      transform: translateY(1px);
+    }
+
+    
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.9);
+      color: #D81118;
+      border: 1.5px solid #D81118;
+      border-radius: 9999px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover {
+      background-color: #D81118;
+      color: #FFFFFF;
+    }
+
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(216, 17, 24, 0.18);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px -8px rgba(180, 140, 100, 0.15);
+    }
+
+   
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(253, 251, 247, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D81118;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-crimson selection:text-white flex items-center justify-center p-2 sm:p-6 md:p-10">
+
+  
+  <div class="crt-scanlines"></div>
+
+  <div class="w-full max-w-[1320px] crt-tv-frame z-20 my-auto">
+    
+    <div class="crt-glass-reflection"></div>
+    
+  
+    <div class="crt-meadow-backdrop"></div>
+
+    
+    <div class="relative z-10 p-4 sm:p-8 md:p-12 flex flex-col justify-between min-h-[92vh]">
+
+      <header class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-crimson/20 pb-5">
+        
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="ticket-badge group" title="Volver al portafolio">
+            <span class="group-hover:-translate-x-1 transition-transform">←</span>
+            <span>PORTFOLIO</span>
+          </a>
+          <div class="text-[11px] font-mono tracking-tight text-neutral-600 uppercase">
+            <span class="font-bold text-crimson">REIKA HARADA</span> // CAPSULE ARCHIVE
+          </div>
+        </div>
+
+        <div class="text-center font-mono text-[11px] text-neutral-500 tracking-wider">
+          <span class="text-crimson font-bold">BARCELONA // 2026</span>
+          <span class="mx-2">•</span>
+          <span>DIGITAL CLOSET SYSTEM</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest hidden lg:inline">SAY HELLO:</span>
+          <button onclick="copiarEmailReika()" class="ticket-badge bg-crimsonSoft text-crimson hover:bg-crimson hover:text-white">
+            <span>reichan2002@digitechfp.com</span>
+            <span>📋</span>
+          </button>
+        </div>
+
+      </header>
+
+     
+      <section class="py-6 sm:py-10 text-center relative">
+        
+        <div class="absolute right-4 sm:right-16 top-0 hidden sm:block">
+          <div class="stamp-tag">
+            CAPSULE<br>DESIGNER
+          </div>
+        </div>
+
+        <div class="inline-block relative max-w-4xl mx-auto px-2">
+          
+          
+          <div class="font-editorial italic text-2xl sm:text-4xl text-crimson font-medium tracking-tight mb-[-14px] sm:mb-[-24px] relative z-20">
+            welcome to my
+          </div>
+
+          <div class="relative flex items-center justify-center">
+            
+            
+            <svg class="w-8 h-8 sm:w-12 sm:h-12 text-crimson absolute right-2 sm:right-6 top-1 animate-pulse" viewBox="0 0 100 100" fill="currentColor">
+              <path d="M50 0 L58 35 L93 25 L68 50 L93 75 L58 65 L50 100 L42 65 L7 75 L32 50 L7 25 L42 35 Z"/>
+            </svg>
+
+            <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40 text-crimson overflow-visible" viewBox="0 0 800 200" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M 50 120 C 120 40, 280 20, 480 80 C 680 140, 780 40, 720 160 C 660 230, 320 180, 180 140 C 80 110, 40 160, 100 180" />
+            </svg>
+
+            <h1 class="font-serifTitle italic font-light text-5xl sm:text-8xl md:text-9xl text-crimson tracking-tight leading-none relative z-10 py-1 drop-shadow-sm select-none">
+              ward<span class="font-editorial not-italic font-bold">robe</span>
+            </h1>
+          </div>
+
+          <div class="flex items-center justify-center gap-6 mt-2 relative z-10">
+            <span class="font-mono text-xs uppercase tracking-widest text-neutral-400 hidden sm:inline">CAPSULE v.01</span>
+            
+            <div class="border-2 border-crimson rounded-full px-5 py-1 text-crimson font-serifTitle italic font-bold text-xs sm:text-sm tracking-wider bg-white/90 shadow-sm">
+              REIKA HARADA
+            </div>
+
+            <span class="font-serifTitle text-2xl sm:text-4xl text-crimson font-light tracking-widest">
+              2026
+            </span>
+          </div>
+
+        </div>
+
+      </section>
+
+      <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 my-4">
+        
+        
+        <section class="lg:col-span-7 glass-card p-5 sm:p-7 flex flex-col justify-between">
+          
+         
+          <div class="flex items-center justify-between border-b border-crimson/15 pb-4 mb-5">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-crimson animate-ping"></span>
+              <h2 class="font-serifTitle italic font-bold text-xl sm:text-2xl text-crimson tracking-tight">
+                Outfit Canvas
+              </h2>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="generarLookAleatorio()" class="btn-outline text-xs px-3.5 py-1.5 flex items-center gap-1.5 shadow-sm">
+                <span>🎲</span>
+                <span>Random Look</span>
+              </button>
+              <button onclick="limpiarCanvas()" class="ticket-badge text-[10px] py-1">
+                Limpiar
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 my-2">
+            
+            <div class="border border-crimson/20 rounded-2xl p-2.5 bg-white/70 flex flex-col justify-between group hover:border-crimson transition-all relative">
+              <div class="flex items-center justify-between text-[10px] font-mono text-crimson mb-1.5">
+                <span class="font-bold">01 • CAPA</span>
+                <button onclick="cambiarSlotAleatorio('outerwear')" title="Cambiar" class="text-xs hover:scale-125 transition-transform">↻</button>
+              </div>
+              <div class="aspect-[4/5] rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 relative mb-2">
+                <img id="img-slot-outerwear" src="casaca1.jpeg" alt="Capa" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 id="name-slot-outerwear" class="font-serifTitle italic text-xs font-bold text-neutral-800 truncate">Deportiva</h4>
+                <p id="detail-slot-outerwear" class="font-sans text-[10px] text-neutral-500 truncate">Rojo</p>
+              </div>
+            </div>
+
+            
+            <div class="border border-crimson/20 rounded-2xl p-2.5 bg-white/70 flex flex-col justify-between group hover:border-crimson transition-all relative">
+              <div class="flex items-center justify-between text-[10px] font-mono text-crimson mb-1.5">
+                <span class="font-bold">02 • TOP</span>
+                <button onclick="cambiarSlotAleatorio('top')" title="Cambiar" class="text-xs hover:scale-125 transition-transform">↻</button>
+              </div>
+              <div class="aspect-[4/5] rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 relative mb-2">
+                <img id="img-slot-top" src="blusa1.jpg" alt="Top" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 id="name-slot-top" class="font-serifTitle italic text-xs font-bold text-neutral-800 truncate">Blusa verde</h4>
+                <p id="detail-slot-top" class="font-sans text-[10px] text-neutral-500 truncate">Algodón</p>
+              </div>
+            </div>
+
+           
+            <div class="border border-crimson/20 rounded-2xl p-2.5 bg-white/70 flex flex-col justify-between group hover:border-crimson transition-all relative">
+              <div class="flex items-center justify-between text-[10px] font-mono text-crimson mb-1.5">
+                <span class="font-bold">03 • BOTTOM</span>
+                <button onclick="cambiarSlotAleatorio('bottom')" title="Cambiar" class="text-xs hover:scale-125 transition-transform">↻</button>
+              </div>
+              <div class="aspect-[4/5] rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 relative mb-2">
+                <img id="img-slot-bottom" src="jean1.jpeg" alt="Bottom" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 id="name-slot-bottom" class="font-serifTitle italic text-xs font-bold text-neutral-800 truncate">Jean claro</h4>
+                <p id="detail-slot-bottom" class="font-sans text-[10px] text-neutral-500 truncate">Denim</p>
+              </div>
+            </div>
+
+            
+            <div class="border border-crimson/20 rounded-2xl p-2.5 bg-white/70 flex flex-col justify-between group hover:border-crimson transition-all relative">
+              <div class="flex items-center justify-between text-[10px] font-mono text-crimson mb-1.5">
+                <span class="font-bold">04 • CALZADO</span>
+                <button onclick="cambiarSlotAleatorio('shoes')" title="Cambiar" class="text-xs hover:scale-125 transition-transform">↻</button>
+              </div>
+              <div class="aspect-[4/5] rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 relative mb-2">
+                <img id="img-slot-shoes" src="tenis1.jpeg" alt="Shoes" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 id="name-slot-shoes" class="font-serifTitle italic text-xs font-bold text-neutral-800 truncate">Deportivas</h4>
+                <p id="detail-slot-shoes" class="font-sans text-[10px] text-neutral-500 truncate">Casuales</p>
+              </div>
+            </div>
+
+          </div>
+
+          
+          <div class="mt-5 pt-4 border-t border-crimson/15 flex flex-col sm:flex-row items-center gap-3">
+            <input id="input-combo-name" type="text" placeholder="Bautiza esta combinación (Ej: Paseo por Gràcia 2026)..." class="w-full sm:flex-1 bg-white/90 border border-crimson/30 rounded-full px-4 py-2 text-xs font-medium text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-crimson">
+            
+            <button onclick="guardarCombinacionActual()" class="btn-crimson w-full sm:w-auto px-6 py-2 text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+              <span>💾</span>
+              <span>Guardar en Lookbook</span>
+            </button>
+          </div>
+
+        </section>
+
+        
+        <section class="lg:col-span-5 glass-card p-5 sm:p-7 flex flex-col justify-between">
+          
+          <div>
+            
+            <div class="flex items-center justify-between border-b border-crimson/15 pb-4 mb-4">
+              <div>
+                <h3 class="font-serifTitle italic font-bold text-xl text-crimson">
+                  Catálogo de Armario
+                </h3>
+                <p class="font-mono text-[10px] text-neutral-500">Toca cualquier prenda para equiparla</p>
+              </div>
+
+              
+              <button onclick="abrirModalNuevaPrenda()" class="btn-crimson text-xs px-4 py-1.5 flex items-center gap-1.5 shadow-sm">
+                <span>+</span>
+                <span>Subir Prenda</span>
+              </button>
+            </div>
+
+            
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <button onclick="setCategoriaFiltro('all')" class="cat-filter-btn px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-crimson text-white">TODOS</button>
+              <button onclick="setCategoriaFiltro('top')" class="cat-filter-btn px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-white text-crimson border border-crimson/30 hover:bg-crimsonSoft">TOPS</button>
+              <button onclick="setCategoriaFiltro('bottom')" class="cat-filter-btn px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-white text-crimson border border-crimson/30 hover:bg-crimsonSoft">BOTTOMS</button>
+              <button onclick="setCategoriaFiltro('outerwear')" class="cat-filter-btn px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-white text-crimson border border-crimson/30 hover:bg-crimsonSoft">CAPAS</button>
+              <button onclick="setCategoriaFiltro('shoes')" class="cat-filter-btn px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-white text-crimson border border-crimson/30 hover:bg-crimsonSoft">CALZADO</button>
+            </div>
+
+            <div class="mb-3">
+              <input id="catalog-search" oninput="filtrarCatalogo()" type="text" placeholder="Buscar por nombre o color..." class="w-full bg-white/90 border border-crimson/20 rounded-xl px-3 py-1.5 text-xs text-neutral-700 placeholder-neutral-400 focus:outline-none focus:border-crimson">
+            </div>
+
+            <div id="catalog-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
+              
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-crimson/15 flex items-center justify-between text-xs font-mono text-neutral-600">
+            <div>
+              <span id="stat-piezas" class="font-bold text-crimson text-sm">16</span> piezas cargadas
+            </div>
+            <div>
+              <span id="stat-combos" class="font-bold text-crimson text-sm">256</span> combinaciones posibles
+            </div>
+          </div>
+
+        </section>
+
+      </main>
+
+      <section class="mt-4 pt-5 border-t border-crimson/20">
+        
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <span class="text-crimson text-lg">✦</span>
+            <h3 class="font-serifTitle italic font-bold text-2xl text-crimson tracking-tight">
+              Lookbook Guardado
+            </h3>
+            <span id="stat-archived" class="ticket-badge text-[10px] py-0.5 ml-2">3 looks</span>
+          </div>
+          <span class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest hidden sm:inline">
+            Persistencia en LocalStorage
+          </span>
+        </div>
+
+      
+        <div id="saved-looks-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          
+        </div>
+
+      </section>
+
+      <footer class="mt-8 pt-4 border-t border-crimson/15 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-neutral-500 gap-3">
+        <div>
+          <span class="text-crimson font-bold">REIKA HARADA</span> • BARCELONA 2026 • DIGITAL CAPSULE SYSTEM
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="hover:text-crimson underline">Volver al Portafolio ↗</a>
+          <button onclick="copiarEmailReika()" class="hover:text-crimson">Copiar Correo 📋</button>
+        </div>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <div id="modal-nuevo-item" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
+    <div class="bg-crtBg border-2 border-crimson rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+      
+      <!-- Modal header -->
+      <div class="flex items-center justify-between border-b border-crimson/20 pb-3 mb-4">
+        <div>
+          <span class="font-mono text-[10px] text-crimson uppercase tracking-widest">Añadir al Armario</span>
+          <h4 class="font-serifTitle italic font-bold text-2xl text-crimson">Nueva Prenda</h4>
+        </div>
+        <button onclick="cerrarModalNuevaPrenda()" class="w-8 h-8 rounded-full border border-crimson text-crimson hover:bg-crimson hover:text-white flex items-center justify-center font-bold text-sm">✕</button>
+      </div>
+
+    
+      <form id="form-item" onsubmit="guardarNuevoItem(event)" class="space-y-3.5">
+        
+        <div>
+          <label class="block font-mono text-[11px] uppercase text-neutral-700 mb-1">Nombre de la Prenda:</label>
+          <input required id="nuevo-item-nombre" type="text" placeholder="Ej: Blazer Vintage Oversized" class="w-full bg-white border border-crimson/30 rounded-xl px-3 py-2 text-xs font-sans focus:outline-none focus:border-crimson">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-mono text-[11px] uppercase text-neutral-700 mb-1">Categoría:</label>
+            <select id="nuevo-item-categoria" class="w-full bg-white border border-crimson/30 rounded-xl px-3 py-2 text-xs font-sans focus:outline-none focus:border-crimson">
+              <option value="outerwear">Capa / Abrigo</option>
+              <option value="top">Top / Camisa</option>
+              <option value="bottom">Bottom / Pantalón</option>
+              <option value="shoes">Calzado / Zapatos</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-mono text-[11px] uppercase text-neutral-700 mb-1">Temporada:</label>
+            <select id="nuevo-item-temporada" class="w-full bg-white border border-crimson/30 rounded-xl px-3 py-2 text-xs font-sans focus:outline-none focus:border-crimson">
+              <option value="All Season">Atemporal</option>
+              <option value="Otoño / Invierno">Otoño / Invierno</option>
+              <option value="Primavera / Verano">Primavera / Verano</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-mono text-[11px] uppercase text-neutral-700 mb-1">Color o Material:</label>
+          <input required id="nuevo-item-detalles" type="text" placeholder="Ej: Negro Lino • Neutro" class="w-full bg-white border border-crimson/30 rounded-xl px-3 py-2 text-xs font-sans focus:outline-none focus:border-crimson">
+        </div>
+
+        
+        <div>
+          <label class="block font-mono text-[11px] uppercase text-neutral-700 mb-1">Foto de la Prenda:</label>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
+            
+            <label class="btn-outline flex items-center justify-center text-center p-2 cursor-pointer font-mono text-[10px] uppercase">
+              <span>📁 Elegir Archivo</span>
+              <input id="nuevo-item-archivo" type="file" accept="image/*" class="hidden" onchange="manejarCargaImagen(event)">
+            </label>
+           
+            <input id="nuevo-item-url" type="url" placeholder="O pega enlace de foto..." class="bg-white border border-crimson/30 rounded-xl px-2.5 py-1.5 text-xs font-mono">
+          </div>
+
+          
+          <div class="h-28 rounded-xl border border-dashed border-crimson/40 bg-white/60 flex items-center justify-center overflow-hidden relative">
+            <img id="preview-foto" src="" alt="Preview" class="h-full w-full object-contain hidden">
+            <span id="preview-placeholder" class="font-mono text-xs text-neutral-400">[Sin foto seleccionada aún]</span>
+          </div>
+        </div>
+
+       
+        <div class="flex items-center justify-end gap-2 pt-3 border-t border-crimson/20">
+          <button type="button" onclick="cerrarModalNuevaPrenda()" class="ticket-badge text-xs px-4 py-2">
+            Cancelar
+          </button>
+          <button type="submit" class="btn-crimson text-xs px-5 py-2 uppercase">
+            Guardar en Armario ↗
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-white border-2 border-crimson text-crimson rounded-2xl px-5 py-3 font-mono text-xs flex items-center gap-2 shadow-2xl transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <span class="text-base">✦</span>
+    <span id="toast-text">Notificación del sistema</span>
+  </div>
+
+
+  <script>
+   
+    const DEFAULT_WARDROBE = [
+      {
+        id: 'item-1',
+        name: 'Casaca deportiva',
+        categoria: 'outerwear',
+        detalles: 'Adidas',
+        temporada: 'Otoño / Invierno',
+        img: 'casaca1.jpeg'
+      },
+      {
+        id: 'item-2',
+        name: 'Coat marrón',
+        categoria: 'outerwear',
+        detalles: 'Alpaca',
+        temporada: 'Invierno',
+        img: 'casaca2.jpeg'
+      },
+      {
+        id: 'item-3',
+        name: 'Puffer marrón',
+        categoria: 'outerwear',
+        detalles: 'Rayada',
+        temporada: 'Invierno',
+        img: 'casaca3.jpeg'
+      },
+      {
+        id: 'item-4',
+        name: 'Polo rayado',
+        categoria: 'top',
+        detalles: '100% Algodón',
+        temporada: 'All Season',
+        img: 'polo1.jpg'
+      },
+      {
+        id: 'item-5',
+        name: 'Ribbed Knit Turtleneck',
+        categoria: 'top',
+        detalles: 'Crudo • Lana Merino suave',
+        temporada: 'Otoño / Invierno',
+        img: 'sweater1.jpeg'
+      },
+      {
+        id: 'item-6',
+        name: 'Sweater rosa y amarillo',
+        categoria: 'top',
+        detalles: 'Lana',
+        temporada: 'Invierno',
+        img: 'sweater2.jpeg'
+      },
+      {
+        id: 'item-7',
+        name: 'Jean celeste',
+        categoria: 'bottom',
+        detalles: 'Denim claro',
+        temporada: 'All Season',
+        img: 'jean1.jpeg'
+      },
+      {
+        id: 'item-8',
+        name: 'Jean oscuro',
+        categoria: 'bottom',
+        detalles: 'Azul Índigo',
+        temporada: 'All Season',
+        img: 'jean2.jpeg'
+      },
+      {
+        id: 'item-9',
+        name: 'Denim verde',
+        categoria: 'bottom',
+        detalles: 'Drill oliva',
+        temporada: 'Primavera / Verano',
+        img: 'jean3.jpeg'
+      },
+      {
+        id: 'item-10',
+        name: 'Gazelle adidas',
+        categoria: 'shoes',
+        detalles: 'Cuero guinda',
+        temporada: 'All Season',
+        img: 'tenis2.jpeg'
+      },
+      {
+        id: 'item-11',
+        name: 'Campus negras',
+        categoria: 'shoes',
+        detalles: 'Casuales',
+        temporada: 'All season',
+        img: 'tenis1.jpeg'
+      },
+      {
+        id: 'item-12',
+        name: 'Onitsuka',
+        categoria: 'shoes',
+        detalles: 'Amarillas',
+        temporada: 'All season',
+        img: 'tenis3.jpeg'
+        
+      },
+      {
+        id: 'item-13',
+        name: 'Blusa verde',
+        categoria: 'top',
+        detalles: 'Rayada',
+        temporada: 'All season',
+        img: 'blusa1.jpeg'
+        
+      },
+      {
+        id: 'item-14',
+        name: 'Minifalda',
+        categoria: 'bottom',
+        detalles: 'Denim',
+        temporada: 'Verano',
+        img: 'falda3.jpeg'
+        
+      },
+      {
+        id: 'item-15',
+        name: 'Falda rosa',
+        categoria: 'bottom',
+        detalles: 'Larga',
+        temporada: 'Verano',
+        img: 'falda1.jpeg'
+        
+      },
+      {
+        id: 'item-16',
+        name: 'Falda rayada',
+        categoria: 'bottom',
+        detalles: 'Larga',
+        temporada: 'Verano',
+        img: 'falda2.jpeg'
+        
+      }
+    ];
+
+    let armario = [];
+    let savedLooks = [];
+    let categoriaFiltroActiva = 'all';
+
+    let equippedLook = {
+      outerwear: null,
+      top: null,
+      bottom: null,
+      shoes: null
+    };
+
+    let tempImagenBase64 = '';
+
+    
+    window.onload = function() {
+      initDatabase();
+      initEquippedLook();
+      renderizarCatalogo();
+      renderizarSavedLooks();
+      actualizarEstadisticas();
+    };
+
+    function initDatabase() {
+      const storedWardrobe = localStorage.getItem('reika_vintage_wardrobe');
+      armario = storedWardrobe ? JSON.parse(storedWardrobe) : [...DEFAULT_WARDROBE];
+
+      const storedLooks = localStorage.getItem('reika_vintage_looks');
+      if (storedLooks) {
+        savedLooks = JSON.parse(storedLooks);
+      } else {
+        
+        savedLooks = [
+          {
+            id: 'look-1',
+            name: 'Cita en la playa',
+            outerwear: armario[1],
+            top: armario[3],
+            bottom: armario[6],
+            shoes: armario[9]
+          },
+          {
+            id: 'look-2',
+            name: 'Salida con amigos',
+            outerwear: armario[0],
+            top: armario[4],
+            bottom: armario[7],
+            shoes: armario[10]
+          },
+          {
+            id: 'look-3',
+            name: 'Día de trabajo',
+            outerwear: armario[2],
+            top: armario[5],
+            bottom: armario[8],
+            shoes: armario[11]
+          }
+        ];
+      }
+    }
+
+    function saveToStorage() {
+      localStorage.setItem('reika_vintage_wardrobe', JSON.stringify(armario));
+      localStorage.setItem('reika_vintage_looks', JSON.stringify(savedLooks));
+    }
+
+    function initEquippedLook() {
+      equippedLook.outerwear = armario.find(p => p.categoria === 'outerwear') || armario[0];
+      equippedLook.top = armario.find(p => p.categoria === 'top') || armario[3];
+      equippedLook.bottom = armario.find(p => p.categoria === 'bottom') || armario[6];
+      equippedLook.shoes = armario.find(p => p.categoria === 'shoes') || armario[9];
+      actualizarCanvasSlots();
+    }
+
+    function actualizarCanvasSlots() {
+      const categorias = ['outerwear', 'top', 'bottom', 'shoes'];
+      categorias.forEach(cat => {
+        const item = equippedLook[cat];
+        const imgEl = document.getElementById(`img-slot-${cat}`);
+        const nameEl = document.getElementById(`name-slot-${cat}`);
+        const detailEl = document.getElementById(`detail-slot-${cat}`);
+
+        if (item) {
+          if (imgEl) imgEl.src = item.img;
+          if (nameEl) nameEl.textContent = item.name;
+          if (detailEl) detailEl.textContent = item.detalles;
+        } else {
+          if (imgEl) imgEl.src = 'https://placehold.co/400x500/FAF6EE/D81118?text=Vacío';
+          if (nameEl) nameEl.textContent = 'Sin Prenda';
+          if (detailEl) detailEl.textContent = 'Selecciona una';
+        }
+      });
+    }
+
+    function equiparPrenda(itemId) {
+      const item = armario.find(p => p.id === itemId);
+      if (!item) return;
+
+      equippedLook[item.categoria] = item;
+      actualizarCanvasSlots();
+      mostrarToast(`Equipada: ${item.name}`);
+    }
+
+    function generarLookAleatorio() {
+      const outers = armario.filter(p => p.categoria === 'outerwear');
+      const tops = armario.filter(p => p.categoria === 'top');
+      const bottoms = armario.filter(p => p.categoria === 'bottom');
+      const shoes = armario.filter(p => p.categoria === 'shoes');
+
+      if (outers.length) equippedLook.outerwear = outers[Math.floor(Math.random() * outers.length)];
+      if (tops.length) equippedLook.top = tops[Math.floor(Math.random() * tops.length)];
+      if (bottoms.length) equippedLook.bottom = bottoms[Math.floor(Math.random() * bottoms.length)];
+      if (shoes.length) equippedLook.shoes = shoes[Math.floor(Math.random() * shoes.length)];
+
+      actualizarCanvasSlots();
+      mostrarToast('✦ Look aleatorio generado');
+    }
+
+    function limpiarCanvas() {
+      equippedLook = { outerwear: null, top: null, bottom: null, shoes: null };
+      actualizarCanvasSlots();
+      mostrarToast('Canvas limpiado');
+    }
+
+    function cambiarSlotAleatorio(categoria) {
+      const opciones = armario.filter(p => p.categoria === categoria);
+      if (opciones.length <= 1) return;
+
+      const actualId = equippedLook[categoria] ? equippedLook[categoria].id : null;
+      const filtradas = opciones.filter(p => p.id !== actualId);
+      const nueva = filtradas[Math.floor(Math.random() * filtradas.length)];
+
+      equippedLook[categoria] = nueva;
+      actualCanvasSlots();
+      mostrarToast(`Cambiada: ${nueva.name}`);
+    }
+
+    function setCategoriaFiltro(cat) {
+      categoriaFiltroActiva = cat;
+      const btns = document.querySelectorAll('.cat-filter-btn');
+      btns.forEach(btn => {
+        btn.classList.remove('bg-crimson', 'text-white');
+        btn.classList.add('bg-white', 'text-crimson', 'border', 'border-crimson/30');
+      });
+      event.target.classList.remove('bg-white', 'text-crimson', 'border', 'border-crimson/30');
+      event.target.classList.add('bg-crimson', 'text-white');
+
+      filtrarCatalogo();
+    }
+
+    function filtrarCatalogo() {
+      const texto = document.getElementById('catalog-search').value.toLowerCase();
+
+      const resultado = armario.filter(item => {
+        const coincideCat = (categoriaFiltroActiva === 'all' || item.categoria === categoriaFiltroActiva);
+        const coincideTexto = item.name.toLowerCase().includes(texto) ||
+                              item.detalles.toLowerCase().includes(texto);
+        return coincideCat && coincideTexto;
+      });
+
+      renderizarGridCatalogo(resultado);
+    }
+
+    function renderizarCatalogo() {
+      filtrarCatalogo();
+    }
+
+    function renderizarGridCatalogo(items) {
+      const grid = document.getElementById('catalog-grid');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-8 text-center font-mono text-xs text-neutral-400">
+            [No hay prendas que coincidan]
+          </div>
+        `;
+        return;
+      }
+
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = "border border-crimson/20 rounded-xl p-2 bg-white/80 hover:border-crimson hover:shadow-md cursor-pointer transition-all flex flex-col justify-between group";
+        card.onclick = () => equiparPrenda(item.id);
+
+        card.innerHTML = `
+          <div>
+            <div class="aspect-square rounded-lg bg-neutral-100 overflow-hidden mb-1.5 relative">
+              <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
+              <span class="absolute top-1 left-1 bg-crimson text-white font-mono text-[7px] px-1 py-0.5 rounded uppercase">
+                ${item.categoria}
+              </span>
+            </div>
+            <h5 class="font-serifTitle italic text-[11px] font-bold text-neutral-900 truncate">${item.name}</h5>
+          </div>
+          <div class="text-[9px] font-mono text-neutral-500 mt-1 flex justify-between items-center">
+            <span class="truncate">${item.temporada}</span>
+            <span class="text-crimson font-bold">+</span>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    
+    function guardarCombinacionActual() {
+      const input = document.getElementById('input-combo-name');
+      const nombre = input.value.trim() || `Look #${savedLooks.length + 1} 2026`;
+
+      if (!equippedLook.top && !equippedLook.bottom && !equippedLook.outerwear && !equippedLook.shoes) {
+        mostrarToast('¡Equipa al menos una prenda antes de guardar!');
+        return;
+      }
+
+      const newCombo = {
+        id: 'look-' + Date.now(),
+        name: nombre,
+        outerwear: equippedLook.outerwear,
+        top: equippedLook.top,
+        bottom: equippedLook.bottom,
+        shoes: equippedLook.shoes
+      };
+
+      savedLooks.unshift(newCombo);
+      saveToStorage();
+      renderizarSavedLooks();
+      actualizarEstadisticas();
+
+      input.value = '';
+      mostrarToast(`✦ "${nombre}" guardado en lookbook`);
+    }
+
+  
+    function renderizarSavedLooks() {
+      const container = document.getElementById('saved-looks-container');
+      container.innerHTML = '';
+
+      if (savedLooks.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-8 text-center font-mono text-xs text-neutral-400">
+            [Tu lookbook está vacío. Diseña una combinación y pulsa 'Guardar en Lookbook']
+          </div>
+        `;
+        return;
+      }
+
+      savedLooks.forEach(look => {
+        const card = document.createElement('div');
+        card.className = "glass-card p-3 flex flex-col justify-between relative group hover:border-crimson transition-all";
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between pb-1.5 mb-2 border-b border-crimson/15">
+              <span class="font-serifTitle italic text-xs font-bold text-crimson truncate">${look.name}</span>
+              <button onclick="borrarSavedLook('${look.id}')" title="Eliminar look" class="text-neutral-400 hover:text-crimson text-xs font-bold px-1">✕</button>
+            </div>
+
+            <!-- Mini 4-slot grid -->
+            <div class="grid grid-cols-2 gap-1.5 mb-2">
+              <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden">
+                <img src="${look.outerwear ? look.outerwear.img : 'https://placehold.co/100/FAF6EE/D81118?text=--'}" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden">
+                <img src="${look.top ? look.top.img : 'https://placehold.co/100/FAF6EE/D81118?text=--'}" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden">
+                <img src="${look.bottom ? look.bottom.img : 'https://placehold.co/100/FAF6EE/D81118?text=--'}" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden">
+                <img src="${look.shoes ? look.shoes.img : 'https://placehold.co/100/FAF6EE/D81118?text=--'}" class="w-full h-full object-cover">
+              </div>
+            </div>
+          </div>
+
+          <button onclick="cargarLookEnStudio('${look.id}')" class="btn-outline w-full py-1 text-center font-mono text-[10px] uppercase font-bold">
+            Recargar en Canvas ↗
+          </button>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function cargarLookEnStudio(lookId) {
+      const look = savedLooks.find(l => l.id === lookId);
+      if (!look) return;
+
+      equippedLook.outerwear = look.outerwear;
+      equippedLook.top = look.top;
+      equippedLook.bottom = look.bottom;
+      equippedLook.shoes = look.shoes;
+
+      actualizarCanvasSlots();
+      mostrarToast(`Cargado: ${look.name}`);
+      window.scrollTo({ top: 220, behavior: 'smooth' });
+    }
+
+    function borrarSavedLook(lookId) {
+      savedLooks = savedLooks.filter(l => l.id !== lookId);
+      saveToStorage();
+      renderizarSavedLooks();
+      actualizarEstadisticas();
+      mostrarToast('Look eliminado');
+    }
+
+  
+    function abrirModalNuevaPrenda() {
+      document.getElementById('modal-nuevo-item').classList.remove('hidden');
+    }
+
+    function cerrarModalNuevaPrenda() {
+      document.getElementById('modal-nuevo-item').classList.add('hidden');
+      document.getElementById('form-item').reset();
+      document.getElementById('preview-foto').classList.add('hidden');
+      document.getElementById('preview-placeholder').classList.remove('hidden');
+      tempImagenBase64 = '';
+    }
+
+    function manejarCargaImagen(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        tempImagenBase64 = e.target.result;
+        const img = document.getElementById('preview-foto');
+        img.src = tempImagenBase64;
+        img.classList.remove('hidden');
+        document.getElementById('preview-placeholder').classList.add('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function guardarNuevoItem(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById('nuevo-item-nombre').value.trim();
+      const categoria = document.getElementById('nuevo-item-categoria').value;
+      const temporada = document.getElementById('nuevo-item-temporada').value;
+      const detalles = document.getElementById('nuevo-item-detalles').value.trim();
+      const directUrl = document.getElementById('nuevo-item-url').value.trim();
+
+      const finalImg = tempImagenBase64 || directUrl || 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80';
+
+      const newItem = {
+        id: 'item-' + Date.now(),
+        name: nombre,
+        categoria: categoria,
+        temporada: temporada,
+        detalles: detalles,
+        img: finalImg
+      };
+
+      armario.push(newItem);
+      saveToStorage();
+      renderizarCatalogo();
+      actualizarEstadisticas();
+
+      cerrarModalNuevaPrenda();
+      mostrarToast(`✦ "${nombre}" añadida a tu armario`);
+    }
+
+   
+    function actualizarEstadisticas() {
+      const totalPiezas = armario.length;
+      const outers = armario.filter(p => p.categoria === 'outerwear').length || 1;
+      const tops = armario.filter(p => p.categoria === 'top').length || 1;
+      const bottoms = armario.filter(p => p.categoria === 'bottom').length || 1;
+      const shoes = armario.filter(p => p.categoria === 'shoes').length || 1;
+
+      const combinaciones = outers * tops * bottoms * shoes;
+
+      document.getElementById('stat-piezas').textContent = totalPiezas;
+      document.getElementById('stat-combos').textContent = combinaciones;
+      document.getElementById('stat-archived').textContent = `${savedLooks.length} looks`;
+    }
+
+    function mostrarToast(mensaje) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toast-text');
+      text.textContent = mensaje;
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 2500);
+    }
+
+    function copiarEmailReika() {
+      const dummy = document.createElement("input");
+      document.body.appendChild(dummy);
+      dummy.value = "reichan2002@digitechfp.com";
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+      mostrarToast('Email copiado: reichan2002@digitechfp.com');
+    }
+  </script>
+</body>
+</html>
