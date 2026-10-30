@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reika Harada // Portfolio 2026</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Pixelated, Editorial Serif, Grotesque & Handwritten Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;600;800;900&family=Playfair+Display:ital,wght@1,600&family=Press+Start+2P&family=Space+Grotesk:wght@500;700;900&family=VT323&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            crema: '#FAF7EE',
+            cremaPaper: '#F4EEDB',
+            cobalto: '#1B4DFF',
+            rojoPop: '#FF2A2A',
+            mostaza: '#FFB800',
+            lavanda: '#B692FE',
+            menta: '#55E296',
+            cyberPink: '#FF6EA7',
+          },
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'monospace'],
+            vt: ['"VT323"', 'monospace'],
+            editorial: ['"Instrument Serif"', 'serif'],
+            script: ['"Playfair Display"', 'serif'],
+            sansGrotesk: ['"Space Grotesk"', 'sans-serif'],
+            outfit: ['"Outfit"', 'sans-serif']
+          },
+          boxShadow: {
+            'brutal': '4px 4px 0px #000000',
+            'brutal-lg': '7px 7px 0px #000000',
+            'brutal-xl': '10px 10px 0px #000000',
+            'brutal-sm': '2px 2px 0px #000000',
+            'brutal-hover': '1px 1px 0px #000000',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Cuadrícula de libreta / Grid Notebook de fondo */
+    body {
+      background-color: #FAF7EE;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+      color: #111111;
+      overflow-x: hidden;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Efecto Washi Tape (Cinta adhesiva semitransparente) */
+    .washi-tape {
+      background: rgba(255, 230, 100, 0.85);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+      border-left: 2px dashed rgba(0, 0, 0, 0.15);
+      border-right: 2px dashed rgba(0, 0, 0, 0.15);
+    }
+    .washi-tape-pink {
+      background: rgba(255, 130, 180, 0.8);
+      border-left: 2px dashed rgba(0, 0, 0, 0.15);
+      border-right: 2px dashed rgba(0, 0, 0, 0.15);
+    }
+    .washi-tape-cyan {
+      background: rgba(80, 220, 255, 0.75);
+      border-left: 2px dashed rgba(0, 0, 0, 0.15);
+      border-right: 2px dashed rgba(0, 0, 0, 0.15);
+    }
+
+    /* Sticker cutout con borde blanco y sombra */
+    .sticker-cutout {
+      filter: drop-shadow(3px 4px 0px #000000);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .sticker-cutout:hover {
+      transform: scale(1.08) rotate(3deg);
+    }
+
+    /* Botón neo-brutalista interactivo */
+    .btn-brutal {
+      transition: all 0.12s ease-in-out;
+    }
+    .btn-brutal:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #000000;
+    }
+    .btn-brutal:active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    /* Elementos animados flotantes */
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(2deg); }
+    }
+    .float-slow {
+      animation: subtleFloat 5s ease-in-out infinite;
+    }
+    .float-delay {
+      animation: subtleFloat 6s ease-in-out 1.5s infinite;
+    }
+
+    /* Sparkle rotation */
+    @keyframes spinSparkle {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.12); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .spin-sparkle {
+      animation: spinSparkle 18s linear infinite;
+    }
+
+    /* Cinta rotativa horizontal */
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-wrapper {
+      display: flex;
+      width: 200%;
+      animation: ticker 25s linear infinite;
+    }
+    .ticker-wrapper:hover {
+      animation-play-state: paused;
+    }
+
+    /* Cursor retro custom feel */
+    a, button, .clickable-chip {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-mostaza selection:text-black min-h-screen relative flex flex-col justify-between">
+
+  <!-- MARGEN IZQUIERDO DE ENCUADERNACIÓN / ESPIRAL TIPO NOTEBOOK (Visible en desktop) -->
+  <div class="fixed left-2 top-0 bottom-0 z-40 hidden lg:flex flex-col justify-around pointer-events-none py-6 opacity-80">
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+    <div class="w-6 h-4 border-2 border-black bg-white rounded-full shadow-brutal-sm my-1"></div>
+  </div>
+
+  <!-- HEADER Y BARRA DE NAVEGACIÓN -->
+  <header class="w-full max-w-6xl mx-auto px-4 pt-6 pb-2">
+    <nav class="bg-white border-3 border-black p-3.5 sm:px-6 rounded-2xl shadow-brutal flex flex-wrap items-center justify-between gap-4">
+      
+      <!-- LOGO TIPO GATITO PIXEL + IDENTIDAD -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-menta border-2 border-black rounded-xl flex items-center justify-center text-xl shadow-brutal-sm group-hover:rotate-6 transition-transform">
+          🐱
+        </div>
+        <div>
+          <div class="font-pixel text-xs tracking-wider text-black flex items-center gap-1.5">
+            <span>REIKA HARADA</span>
+            <span class="text-cobalto font-bold text-sm">✦</span>
+          </div>
+          <div class="text-[11px] font-sansGrotesk font-bold text-gray-600 uppercase tracking-widest">
+            Barcelona // 2026
+          </div>
+        </div>
+      </a>
+
+      <!-- DATOS DE CONTACTO DIRECTOS (Sin salto de scroll) -->
+      <div class="flex flex-wrap items-center gap-2.5">
+        <div class="flex items-center gap-2 bg-[#FFF4C2] border-2 border-black px-3.5 py-1.5 rounded-full shadow-brutal-sm text-xs font-bold text-black font-mono">
+          <span>📍</span>
+          <span>Barcelona</span>
+        </div>
+        <button onclick="copiarEmail()" class="btn-brutal inline-flex items-center gap-1.5 bg-rojoPop text-white border-2 border-black font-bold text-xs uppercase px-4 py-2 rounded-xl shadow-brutal-sm hover:bg-black">
+          <span>reichan2002@digitechfp.com</span>
+          <span class="text-sm">📋</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN HERO: DIGITAL SCRAPBOOK & COLLAGE TYPOGRAPHY -->
+  <main class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 relative">
+
+    <!-- ELEMENTOS FLOTANTES DECORATIVOS RETRO (Estrellas, Sparkles y Formas) -->
+    <!-- Sparkle dorado -->
+    <div class="absolute top-12 left-4 md:left-14 pointer-events-none float-slow select-none z-10">
+      <svg class="w-16 h-16 md:w-20 md:h-20 text-mostaza spin-sparkle" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M50 0 L58 35 L93 25 L68 50 L93 75 L58 65 L50 100 L42 65 L7 75 L32 50 L7 25 L42 35 Z" stroke="#000" stroke-width="4"/>
+      </svg>
+    </div>
+
+    <!-- Sparkle azul cobalto 4 puntas -->
+    <div class="absolute top-8 right-6 md:right-20 pointer-events-none float-delay select-none z-10">
+      <svg class="w-14 h-14 md:w-16 md:h-16 text-cobalto" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M50 0 C50 35 65 50 100 50 C65 50 50 65 50 100 C50 65 35 50 0 50 C35 50 50 35 50 0 Z" stroke="#000" stroke-width="4"/>
+      </svg>
+    </div>
+
+    <!-- Rectángulos pop geométricos decorativos -->
+    <div class="absolute top-48 left-1 hidden md:block w-9 h-5 bg-cobalto border-2 border-black -rotate-12 shadow-brutal-sm pointer-events-none"></div>
+    <div class="absolute top-52 right-8 hidden md:block w-12 h-6 bg-lavanda border-2 border-black rotate-6 shadow-brutal-sm pointer-events-none"></div>
+    <div class="absolute top-28 right-44 hidden md:block w-6 h-6 bg-rojoPop border-2 border-black rotate-12 shadow-brutal-sm pointer-events-none"></div>
+
+    <!-- HERO CONTENT CONTAINER -->
+    <section class="relative bg-white border-3 border-black rounded-3xl p-6 sm:p-12 md:p-16 shadow-brutal-xl overflow-hidden mt-4">
+      
+      <!-- CINTAS ADHESIVAS (Washi Tape) EN LAS ESQUINAS SUPERIORES -->
+      <div class="washi-tape absolute -top-3 left-12 w-32 h-7 -rotate-3 z-20"></div>
+      <div class="washi-tape-pink absolute -top-3 right-16 w-28 h-7 rotate-2 z-20"></div>
+
+      <!-- TEXTO SUPERIOR "THIS PORTFOLIO WAS MADE WITH..." -->
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs font-bold text-gray-700 tracking-wider mb-6 pb-2 border-b-2 border-dashed border-gray-200">
+        <div class="flex items-center gap-2 mb-2 sm:mb-0">
+          <span class="bg-black text-white px-2 py-0.5 rounded text-[10px] font-pixel">2026</span>
+          <span>REIKA HARADA • CREATIVE DEV</span>
+        </div>
+        <div class="font-mono text-[11px] text-gray-500 uppercase tracking-widest text-center">
+          Donde el arte visual cobra vida a través del código ✦
+        </div>
+      </div>
+
+      <!-- TITULAR COLLAGE MULTITIPOGRAFÍA (Inspirado en la imagen de referencia) -->
+      <div class="text-center my-6 relative py-4">
+        
+        <!-- Fila 1: "Welcome" en Pixel Font grande con borde -->
+        <div class="inline-block relative">
+          <h1 class="font-pixel text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-black drop-shadow-[4px_4px_0px_#FFB800] select-none">
+            Welcome
+          </h1>
+          <!-- Sticker doodle carita cerca del título -->
+          <div class="sticker-cutout absolute -left-8 -top-8 hidden sm:block bg-yellow-300 border-2 border-black rounded-full p-2 rotate-[-15deg]">
+            <span class="text-2xl">✨</span>
+          </div>
+        </div>
+
+        <!-- Fila 2: "to my" en cursiva elegante/editorial clásica + flecha roja pop -->
+        <div class="flex items-center justify-center gap-4 my-1 sm:my-2">
+          <span class="font-script italic text-3xl sm:text-5xl md:text-6xl text-black font-semibold tracking-normal">
+            to my
+          </span>
+          <div class="w-12 sm:w-20 h-1 bg-rojoPop relative rounded-full">
+            <div class="absolute right-0 -top-1.5 border-solid border-l-rojoPop border-l-8 border-y-transparent border-y-4 border-r-0"></div>
+          </div>
+        </div>
+
+        <!-- Fila 3: "Portfolio" Bold Sans Grotesk Gigante + Elipse ovalada Y2K detrás -->
+        <div class="relative inline-block mt-2">
+          <!-- Elipse orbital decorativa rosa/roja alrededor de Portfolio -->
+          <div class="absolute inset-0 -m-3 sm:-m-5 border-2 border-rojoPop/60 rounded-[50%] pointer-events-none transform -rotate-2"></div>
+          <h2 class="font-outfit font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-black tracking-tighter uppercase relative z-10">
+            Port<span class="font-editorial italic font-normal lowercase tracking-normal text-cobalto">folio</span>
+          </h2>
+        </div>
+
+      </div>
+
+      <!-- DESCRIPCIÓN DEL PERFIL (Desarrollo Web + Diseño) -->
+      <div class="max-w-2xl mx-auto text-center mt-6">
+        <p class="font-sansGrotesk text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
+          El punto de encuentro entre la sensibilidad visual y la estructura lógica. Dando forma a experiencias digitales donde cada línea de código tiene propósito estético y funcional.
+        </p>
+
+        <!-- TAGS / BADGES ESTILO STICKERS FLOTANTES -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5 mt-6">
+          <span class="bg-cremaPaper border-2 border-black px-3.5 py-1.5 rounded-full font-bold text-xs uppercase shadow-brutal-sm -rotate-2 hover:rotate-0 transition-transform">
+            ✨ Arte & Código
+          </span>
+          <span class="bg-cyberPink/20 text-black border-2 border-black px-3.5 py-1.5 rounded-full font-bold text-xs uppercase shadow-brutal-sm rotate-2 hover:rotate-0 transition-transform">
+            👗 Capsule Wardrobe App
+          </span>
+          <span class="bg-menta/30 border-2 border-black px-3.5 py-1.5 rounded-full font-bold text-xs uppercase shadow-brutal-sm -rotate-1 hover:rotate-0 transition-transform">
+            ☕ Java & MySQL
+          </span>
+          <span class="bg-cobalto text-white border-2 border-black px-3.5 py-1.5 rounded-full font-bold text-xs uppercase shadow-brutal-sm rotate-1 hover:rotate-0 transition-transform">
+            🎨 UI Design & Estética
+          </span>
+        </div>
+
+        <!-- BOTONES DE ACCIÓN HERO -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+          <a href="#proyectos" class="btn-brutal bg-mostaza text-black border-3 border-black font-black text-sm sm:text-base uppercase px-8 py-3.5 rounded-2xl shadow-brutal flex items-center gap-2">
+            <span>Explorar Proyectos</span>
+            <span class="text-xl">↘</span>
+          </a>
+          <button onclick="copiarEmail()" id="btn-copy-email" class="btn-brutal bg-white text-black border-3 border-black font-bold text-sm sm:text-base px-6 py-3.5 rounded-2xl shadow-brutal flex items-center gap-2">
+            <span>reichan2002@digitechfp.com</span>
+            <span>📋</span>
+          </button>
+        </div>
+        <div id="copy-feedback" class="text-xs font-mono font-bold text-cobalto mt-2.5 opacity-0 transition-opacity">
+          ¡Email copiado al portapapeles! ✨
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- BANNER INFINITO / TICKER EN CINTA AMARILLA TIPO PRECAUCIÓN / Y2K -->
+    <div class="my-10 bg-mostaza border-y-3 border-black -mx-4 sm:-mx-8 overflow-hidden shadow-brutal py-2.5 transform -rotate-1 select-none">
+      <div class="ticker-wrapper font-pixel text-xs sm:text-sm tracking-wider uppercase text-black font-bold flex gap-8">
+        <span>⚡ ARTE Y CÓDIGO</span>
+        <span>✦</span>
+        <span>BARCELONA // 2026</span>
+        <span>✦</span>
+        <span>JAVA & SQL</span>
+        <span>✦</span>
+        <span>CREATIVE FRONTEND</span>
+        <span>✦</span>
+        <span>CAPSULE WARDROBE APP</span>
+        <span>✦</span>
+        <span>REIKA HARADA</span>
+        <span>✦</span>
+        <span>ARTE Y CÓDIGO</span>
+        <span>✦</span>
+        <span>BARCELONA // 2026</span>
+        <span>✦</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DE PROYECTOS / SCRAPBOOK SHOWCASE -->
+    <section id="proyectos" class="pt-6">
+      
+      <!-- TÍTULO DE SECCIÓN CON STICKERS -->
+      <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-rojoPop border-2 border-black rounded-lg text-white font-pixel flex items-center justify-center shadow-brutal-sm text-sm">
+            01
+          </div>
+          <div>
+            <h3 class="font-outfit font-black text-3xl sm:text-4xl uppercase tracking-tight">
+              Proyectos Destacados
+            </h3>
+            <p class="font-mono text-xs text-gray-600">Creaciones de código con foco en diseño y funcionalidad</p>
+          </div>
+        </div>
+
+        <!-- Filtros interactivos -->
+        <div class="flex gap-2">
+          <button onclick="filtrarProyectos('todos')" class="filter-btn active bg-black text-white border-2 border-black px-3 py-1 rounded-lg text-xs font-bold uppercase shadow-brutal-sm">Todos</button>
+          <button onclick="filtrarProyectos('web')" class="filter-btn bg-white text-black border-2 border-black px-3 py-1 rounded-lg text-xs font-bold uppercase shadow-brutal-sm hover:bg-yellow-100">Web & App</button>
+          <button onclick="filtrarProyectos('java')" class="filter-btn bg-white text-black border-2 border-black px-3 py-1 rounded-lg text-xs font-bold uppercase shadow-brutal-sm hover:bg-yellow-100">Java / Logic</button>
+        </div>
+      </div>
+
+      <!-- GRID DE CARDS DE PROYECTOS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: Digital Capsule Wardrobe (PROYECTO ESTRELLA) -->
+        <article class="project-card web bg-white border-3 border-black rounded-2xl p-5 shadow-brutal-lg relative flex flex-col justify-between group hover:-translate-y-1 transition-transform">
+          <!-- Washi tape pegada inclinada -->
+          <div class="washi-tape-pink absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 rotate-1 z-20"></div>
+
+          <div>
+            <!-- Header visual / Miniatura estilo lookbook -->
+            <div class="border-2 border-black rounded-xl bg-[#FFF9F2] p-4 relative overflow-hidden mb-4 shadow-brutal-sm">
+              <div class="flex justify-between items-center pb-2 border-b border-black/10 text-[10px] font-mono text-gray-500">
+                <span>PROJECT #01</span>
+                <span>PHP • JAVA • SQL</span>
+              </div>
+              <div class="py-6 text-center">
+                <div class="text-5xl mb-2 group-hover:scale-110 transition-transform">👗✨</div>
+                <div class="font-pixel text-xs text-black">CAPSULE_WARDROBE.APP</div>
+                <div class="text-[11px] font-editorial italic text-gray-600 mt-1">Organizador inteligente de prendas & estética minimalista</div>
+              </div>
+              <div class="flex justify-center gap-1.5 mt-2">
+                <span class="w-3 h-3 rounded-full bg-rojoPop border border-black"></span>
+                <span class="w-3 h-3 rounded-full bg-mostaza border border-black"></span>
+                <span class="w-3 h-3 rounded-full bg-cobalto border border-black"></span>
+              </div>
+            </div>
+
+            <!-- Título y descripción -->
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-outfit font-black text-xl uppercase tracking-tight">Capsule Wardrobe</h4>
+              <span class="bg-menta border-2 border-black text-[10px] font-bold px-2 py-0.5 rounded-full shadow-brutal-sm">Destacado</span>
+            </div>
+            <p class="font-sansGrotesk text-sm text-gray-700 mb-4 leading-relaxed">
+              Plataforma para gestionar y combinar prendas de armario cápsula. Incluye catálogo interactivo, filtro por estación y paleta cromática, además de backend con base de datos para registrar outfits.
+            </p>
+
+            <!-- Tags de tecnologías -->
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="bg-gray-100 border border-black text-[11px] font-bold px-2 py-0.5 rounded">JavaScript</span>
+              <span class="bg-gray-100 border border-black text-[11px] font-bold px-2 py-0.5 rounded">Java Backend</span>
+              <span class="bg-gray-100 border border-black text-[11px] font-bold px-2 py-0.5 rounded">MySQL</span>
+              <span class="bg-gray-100 border border-black text-[11px] font-bold px-2 py-0.5 rounded">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <!-- Botones de enlaces -->
+          <div class="flex items-center gap-2 pt-2 border-t-2 border-dashed border-gray-200">
+            <a href="capsule_wardrobe.html" class="btn-brutal flex-1 bg-cobalto text-white border-2 border-black font-bold text-xs uppercase py-2.5 rounded-xl shadow-brutal-sm text-center">
+              Ver Demo ↗
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-brutal bg-white text-black border-2 border-black font-bold text-xs uppercase px-3 py-2.5 rounded-xl shadow-brutal-sm hover:bg-gray-100">
+              GitHub ⌥
+            </a>
+          </div>
+        </article>
+
+        <!-- CARD 2: Interactive Editorial Lookbook -->
+        <article class="project-card web bg-white border-3 border-black rounded-2xl p-5 shadow-brutal-lg relative flex flex-col justify-between group hover:-translate-y-1 transition-transform">
+          <div class="washi-tape-cyan absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 -rotate-2 z-20"></div>
+
+          <div>
+            <div class="border-2 border-black rounded-xl bg-[#F0F8FF] p-4 relative overflow-hidden mb-4 shadow-brutal-sm">
+              <div class="flex justify-between items-center pb-2 border-b border-black/10 text-[10px] font-mono text-gray-500">
+                <span>PROJECT #02</span>
+                <span>UI/UX • E-COMMERCE</span>
+              </div>
+              <div class="py-6 text-center">
+                <div class="text-5xl mb-2 group-hover:scale-110 transition-transform">🛍️🕶️</div>
+                <div class="font-pixel text-xs text-black">AESTHETIC_STORE.UI</div>
+                <div class="text-[11px] font-editorial italic text-gray-600 mt-1">Lookbook interactivo con carrito dinámico</div>
+              </div>
+              <div class="flex justify-center gap-1.5 mt-2">
+                <span class="w-3 h-3 rounded-full bg-cyberPink border border-black"></span>
+                <span class="w-3 h-3 rounded-full bg-menta border border-black"></span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-outfit font-black text-xl uppercase tracking-tight">Editorial Lookbook UI</h4>
+              <span class="bg-lavanda/60 border-2 border-black text-[10px] font-bold px-2 py-0.5 rounded-full shadow-brutal-sm">Frontend</span>
+            </div>
+            <p class="font-sansGrotesk text-sm text-gray-700 mb-4 leading-relaxed">
+              Catálogo visual interactivo para colecciones de moda con transiciones suaves, microinteracciones en las tarjetas de producto y carrito de compras en JavaScript vanilla.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="bg-gray-100 border border-black text-[11px] font-bold px-2 py-0.5 rounded">HTML5 / CSS3</span>
+              <span class="bg-gray-100 border border-black text-[11px] font-bold px-2 py-0.5 rounded">JavaScript ES6</span>
+              <span class="bg-gray-100 border border-black text-[11px] font-bold px-2 py-0.5 rounded">Figma</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t-2 border-dashed border-gray-200">
+            <button onclick="mostrarDemoModal('Editorial Lookbook')" class="btn-brutal flex-1 bg-mostaza text-black border-2 border-black font-bold text-xs uppercase py-2.5 rounded-xl shadow-brutal-sm text-center">
+              Ver Demo ↗
+            </button>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-brutal bg-white text-black border-2 border-black font-bold text-xs uppercase px-3 py-2.5 rounded-xl shadow-brutal-sm hover:bg-gray-100">
+              GitHub ⌥
+            </a>
+          </div>
+        </article>
+
+        <!-- CARD 3: Java Logic / Retro Console App (Estilo Terminal 90s) -->
+        <article class="project-card java bg-[#18181B] text-white border-3 border-black rounded-2xl p-5 shadow-brutal-lg relative flex flex-col justify-between group hover:-translate-y-1 transition-transform">
+          <div class="washi-tape absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 rotate-2 z-20 text-black text-[10px] font-pixel text-center leading-6">JAVA_CORE</div>
+
+          <div>
+            <!-- Ventana estilo Mac Classic / Windows 98 -->
+            <div class="border-2 border-gray-600 rounded-xl bg-black p-3 relative overflow-hidden mb-4 shadow-brutal-sm">
+              <div class="flex items-center justify-between pb-2 border-b border-gray-800">
+                <div class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <span class="text-[10px] font-mono text-gray-400">InventoryManager.java</span>
+              </div>
+              <div class="p-3 font-mono text-xs text-green-400 space-y-1">
+                <p>&gt; javac Main.java</p>
+                <p>&gt; Stock: 42 outfits loaded</p>
+                <p class="text-yellow-400">&gt; DB Connection: SUCCESS [200]</p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-outfit font-black text-xl uppercase tracking-tight text-white">Java Backend Core</h4>
+              <span class="bg-rojoPop text-white border-2 border-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-brutal-sm">POO & SQL</span>
+            </div>
+            <p class="font-sansGrotesk text-sm text-gray-300 mb-4 leading-relaxed">
+              Sistema de gestión de inventario y pedidos desarrollado en Java. Manejo de colecciones, programación orientada a objetos (POO), persistencia en MySQL y control de excepciones.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="bg-gray-800 border border-gray-600 text-[11px] font-bold px-2 py-0.5 rounded text-white">Java SE</span>
+              <span class="bg-gray-800 border border-gray-600 text-[11px] font-bold px-2 py-0.5 rounded text-white">JDBC / MySQL</span>
+              <span class="bg-gray-800 border border-gray-600 text-[11px] font-bold px-2 py-0.5 rounded text-white">Git & Tests</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t-2 border-dashed border-gray-700">
+            <button onclick="ejecutarSimuladorJava()" class="btn-brutal flex-1 bg-menta text-black border-2 border-black font-bold text-xs uppercase py-2.5 rounded-xl shadow-brutal-sm text-center">
+              Ejecutar Script ⚡
+            </button>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-brutal bg-white text-black border-2 border-black font-bold text-xs uppercase px-3 py-2.5 rounded-xl shadow-brutal-sm hover:bg-gray-200">
+              GitHub ⌥
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN INTERACTIVA: STACK TECNOLÓGICO / STICKERS INTERACTIVOS -->
+    <section class="mt-20">
+      <div class="bg-white border-3 border-black rounded-3xl p-6 sm:p-10 shadow-brutal-xl relative">
+        
+        <div class="washi-tape absolute -top-3 left-10 w-24 h-6 -rotate-2"></div>
+        
+        <div class="text-center max-w-xl mx-auto mb-8">
+          <span class="font-pixel text-[11px] bg-mostaza px-3 py-1 rounded border-2 border-black shadow-brutal-sm">MY TOOLBOX</span>
+          <h3 class="font-outfit font-black text-3xl sm:text-4xl uppercase tracking-tight mt-2">Tecnologías & Skills</h3>
+          <p class="font-sansGrotesk text-xs sm:text-sm text-gray-600 mt-1">Pasa el cursor o toca cada sticker para ver su especialidad</p>
+        </div>
+
+        <!-- STICKERS GRID INTERACTIVO -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          
+          <!-- Java -->
+          <div onclick="mostrarInfoSkill('Java', 'Programación Orientada a Objetos, lógica backend robusta, estructuras de datos y persistencia.')" class="clickable-chip group bg-[#FFF6EE] border-2 border-black p-4 rounded-2xl shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 hover:rotate-1 transition-all flex flex-col items-center text-center">
+            <span class="text-3xl mb-1 group-hover:scale-125 transition-transform">☕</span>
+            <span class="font-outfit font-black text-sm uppercase">Java</span>
+            <span class="text-[10px] font-mono text-gray-500">Backend & POO</span>
+          </div>
+
+          <!-- JavaScript -->
+          <div onclick="mostrarInfoSkill('JavaScript ES6+', 'Manipulación dinámica del DOM, interactividad fluida, consumo de APIs Fetch y lógica en el navegador.')" class="clickable-chip group bg-[#FFFDE8] border-2 border-black p-4 rounded-2xl shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 hover:-rotate-1 transition-all flex flex-col items-center text-center">
+            <span class="text-3xl mb-1 group-hover:scale-125 transition-transform">⚡</span>
+            <span class="font-outfit font-black text-sm uppercase">JavaScript</span>
+            <span class="text-[10px] font-mono text-gray-500">Frontend Logic</span>
+          </div>
+
+          <!-- HTML5 & Estructura -->
+          <div onclick="mostrarInfoSkill('HTML5 & CSS3', 'Arquitectura semántica, estilos personalizados y creación de componentes visuales.')" class="clickable-chip group bg-[#F5F2FF] border-2 border-black p-4 rounded-2xl shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 hover:rotate-2 transition-all flex flex-col items-center text-center">
+            <span class="text-3xl mb-1 group-hover:scale-125 transition-transform">🌐</span>
+            <span class="font-outfit font-black text-sm uppercase">HTML & CSS</span>
+            <span class="text-[10px] font-mono text-gray-500">Estructura & Estilo</span>
+          </div>
+
+          <!-- Tailwind CSS -->
+          <div onclick="mostrarInfoSkill('Tailwind CSS', 'Diseño ágil y estético con clases de utilidad y acabados modernos.')" class="clickable-chip group bg-[#EBF8FF] border-2 border-black p-4 rounded-2xl shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 hover:-rotate-2 transition-all flex flex-col items-center text-center">
+            <span class="text-3xl mb-1 group-hover:scale-125 transition-transform">🎨</span>
+            <span class="font-outfit font-black text-sm uppercase">Tailwind CSS</span>
+            <span class="text-[10px] font-mono text-gray-500">Modern Styling</span>
+          </div>
+
+          <!-- MySQL & Bases de Datos -->
+          <div onclick="mostrarInfoSkill('MySQL / SQL', 'Diseño de bases de datos relacionales, consultas estructuradas y persistencia para aplicaciones.')" class="clickable-chip group bg-[#EDFFF5] border-2 border-black p-4 rounded-2xl shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 hover:rotate-1 transition-all flex flex-col items-center text-center">
+            <span class="text-3xl mb-1 group-hover:scale-125 transition-transform">🗄️</span>
+            <span class="font-outfit font-black text-sm uppercase">MySQL</span>
+            <span class="text-[10px] font-mono text-gray-500">Relational DB</span>
+          </div>
+
+          <!-- Git & GitHub Pages -->
+          <div onclick="mostrarInfoSkill('Git & GitHub', 'Control de versiones, flujo de ramas y publicación en entornos web como GitHub Pages.')" class="clickable-chip group bg-[#FCE8F0] border-2 border-black p-4 rounded-2xl shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 hover:-rotate-1 transition-all flex flex-col items-center text-center">
+            <span class="text-3xl mb-1 group-hover:scale-125 transition-transform">🐙</span>
+            <span class="font-outfit font-black text-sm uppercase">Git & GitHub</span>
+            <span class="text-[10px] font-mono text-gray-500">Version Control</span>
+          </div>
+
+          <!-- UI/UX & Figma -->
+          <div onclick="mostrarInfoSkill('UI / UX & Figma', 'Diseño conceptual, selección de paletas visuales, wireframes y prototipado visual.')" class="clickable-chip group bg-[#FFF1ED] border-2 border-black p-4 rounded-2xl shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 hover:rotate-2 transition-all flex flex-col items-center text-center">
+            <span class="text-3xl mb-1 group-hover:scale-125 transition-transform">📐</span>
+            <span class="font-outfit font-black text-sm uppercase">UI / UX Design</span>
+            <span class="text-[10px] font-mono text-gray-500">Figma & Concept</span>
+          </div>
+
+          <!-- Lógica & Algoritmia -->
+          <div onclick="mostrarInfoSkill('Lógica & POO', 'Estructuras de control, resolución de problemas y arquitectura limpia en programación.')" class="clickable-chip group bg-[#F6F6F6] border-2 border-black p-4 rounded-2xl shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 hover:-rotate-1 transition-all flex flex-col items-center text-center">
+            <span class="text-3xl mb-1 group-hover:scale-125 transition-transform">🧩</span>
+            <span class="font-outfit font-black text-sm uppercase">Lógica & POO</span>
+            <span class="text-[10px] font-mono text-gray-500">Problem Solving</span>
+          </div>
+
+        </div>
+
+        <!-- Cajita informativa dinámica al hacer clic en skill -->
+        <div id="skill-detail-box" class="mt-6 p-4 rounded-xl border-2 border-black bg-cremaPaper flex items-start gap-3 transition-all duration-300">
+          <div class="text-2xl">💡</div>
+          <div>
+            <div id="skill-title" class="font-outfit font-bold text-sm uppercase text-black">Haz clic en cualquier habilidad</div>
+            <div id="skill-desc" class="font-sansGrotesk text-xs text-gray-700 mt-0.5">Explora las herramientas que utilizo en mis desarrollos y proyectos.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN ABOUT ME / FICHA TIPO POLAROID + LIBRETA -->
+    <section class="mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <!-- Polaroid Decorativa / Avatar Scrapbook (Preparada para tu JPG) -->
+        <div class="md:col-span-5 flex justify-center">
+          <div class="relative bg-white border-3 border-black p-4 pb-7 rounded-xl shadow-brutal-xl rotate-[-3deg] hover:rotate-0 transition-transform w-full max-w-sm">
+            <div class="washi-tape absolute -top-3 right-8 w-24 h-6 rotate-3"></div>
+            
+            <!-- Marco Foto / Slot para tu imagen JPG -->
+            <div id="polaroid-photo-slot" class="aspect-[4/5] bg-[#E9E4D4] border-2 border-black rounded-lg overflow-hidden flex flex-col items-center justify-center p-4 text-center relative group">
+              <!-- Reemplaza el src con la ruta o URL de tu JPG cuando la tengas -->
+              <img id="avatar-image" src="https://placehold.co/400x500/E9E4D4/111111?text=Espacio+para+tu+foto+JPG" alt="Reika Harada" class="w-full h-full object-cover rounded" onerror="this.style.display='none'; document.getElementById('placeholder-avatar').style.display='flex';" />
+              
+              <div id="placeholder-avatar" class="hidden flex-col items-center justify-center p-4">
+                <div class="text-6xl mb-2">🌸</div>
+                <div class="font-pixel text-[11px] text-black">REIKA_HARADA.JPG</div>
+              </div>
+            </div>
+            
+            <div class="mt-4 text-center">
+              <div class="font-script italic text-2xl text-black">"Arte, concepto & código"</div>
+              <div class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mt-1">Barcelona // 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto Sobre Mí estilo libreta -->
+        <div class="md:col-span-7 bg-white border-3 border-black rounded-3xl p-6 sm:p-8 shadow-brutal-lg relative">
+          <div class="washi-tape-pink absolute -top-3 left-10 w-28 h-6 rotate-1"></div>
+          
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-3 h-3 rounded-full bg-rojoPop border border-black"></span>
+            <span class="font-pixel text-xs uppercase tracking-wide">REIKA_HARADA.TXT</span>
+          </div>
+
+          <h3 class="font-outfit font-black text-2xl sm:text-3xl uppercase tracking-tight mb-4">
+            Donde el diseño tiene intención y el código cobra estructura
+          </h3>
+
+          <p class="font-sansGrotesk text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+            Creo que la tecnología no tiene por qué ser aburrida ni fría. Concibo cada proyecto desde una mirada estética y creativa, respaldada por un desarrollo técnico sólido con <strong>Java</strong>, <strong>JavaScript</strong> y gestión estructurada de bases de datos.
+          </p>
+
+          <p class="font-sansGrotesk text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+            Me interesa explorar proyectos que combinen interfaces expresivas —como aplicaciones dedicadas a la moda y estilismo, diseño interactivo o herramientas digitales con personalidad propia.
+          </p>
+
+          <!-- Checklist estilo libreta -->
+          <div class="space-y-2 border-t-2 border-dashed border-gray-200 pt-4 font-mono text-xs text-gray-800">
+            <div class="flex items-center gap-2">
+              <span class="text-menta font-black text-sm">✔</span>
+              <span>Enfoque en identidad visual, ritmo y armonía cromática</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-menta font-black text-sm">✔</span>
+              <span>Lógica de datos y backend estructurado en Java & MySQL</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-menta font-black text-sm">✔</span>
+              <span>Creando proyectos propios desde Barcelona</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO DIRECTO (Píldoras Neo-Brutales) -->
+    <section class="mt-20">
+      <div class="bg-cremaPaper border-3 border-black rounded-3xl p-8 sm:p-12 shadow-brutal-xl text-center relative overflow-hidden">
+        
+        <div class="washi-tape-cyan absolute -top-3 right-1/4 w-32 h-6 -rotate-2"></div>
+        
+        <div class="max-w-xl mx-auto">
+          <span class="font-pixel text-[11px] bg-black text-white px-3 py-1 rounded uppercase">Contacto // 2026</span>
+          <h3 class="font-outfit font-black text-3xl sm:text-5xl uppercase tracking-tight mt-3 mb-4">
+            Reika Harada
+          </h3>
+          <p class="font-sansGrotesk text-sm sm:text-base text-gray-700 mb-8 leading-relaxed">
+            Puedes escribirme directamente para cualquier consulta, colaboración o proyecto.
+          </p>
+
+          <!-- ENLACES EN PÍLDORAS LIMPIAS (Sin Behance) -->
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            
+            <!-- Email Principal -->
+            <a href="mailto:reichan2002@digitechfp.com" class="btn-brutal bg-rojoPop text-white border-2 border-black font-outfit font-black text-xs sm:text-sm uppercase px-6 py-3.5 rounded-full shadow-brutal-sm flex items-center gap-2">
+              <span>✉</span>
+              <span>reichan2002@digitechfp.com</span>
+            </a>
+
+            <!-- Copiar Email -->
+            <button onclick="copiarEmail()" class="btn-brutal bg-white text-black border-2 border-black font-outfit font-bold text-xs sm:text-sm uppercase px-5 py-3.5 rounded-full shadow-brutal-sm flex items-center gap-2">
+              <span>📋</span>
+              <span>Copiar Correo</span>
+            </button>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-brutal bg-cobalto text-white border-2 border-black font-outfit font-black text-xs sm:text-sm uppercase px-6 py-3.5 rounded-full shadow-brutal-sm flex items-center gap-2">
+              <span>💼</span>
+              <span>LinkedIn</span>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-brutal bg-black text-white border-2 border-black font-outfit font-black text-xs sm:text-sm uppercase px-6 py-3.5 rounded-full shadow-brutal-sm flex items-center gap-2">
+              <span>🐙</span>
+              <span>GitHub</span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL / MENSAJE POPUP INTERACTIVO PARA DEMOS -->
+  <div id="demo-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white border-3 border-black rounded-2xl max-w-md w-full p-6 shadow-brutal-xl relative transform transition-all">
+      <div class="washi-tape absolute -top-3 left-10 w-24 h-5 rotate-1"></div>
+      
+      <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-black">
+        <h4 id="modal-title" class="font-outfit font-black text-xl uppercase tracking-tight text-black">Demo Interactiva</h4>
+        <button onclick="cerrarDemoModal()" class="w-8 h-8 rounded-lg bg-rojoPop text-white font-black border-2 border-black flex items-center justify-center shadow-brutal-sm hover:scale-105">✕</button>
+      </div>
+
+      <div id="modal-content" class="font-sansGrotesk text-sm text-gray-700 leading-relaxed mb-6">
+        <!-- Contenido dinámico inyectado por JS -->
+      </div>
+
+      <div class="flex justify-end gap-2">
+        <button onclick="cerrarDemoModal()" class="btn-brutal bg-mostaza text-black border-2 border-black font-bold text-xs uppercase px-4 py-2 rounded-xl shadow-brutal-sm">
+          Entendido 👍
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT DE INTERACCIONES Y LÓGICA -->
+  <script>
+    // Copiar email de Reika al portapapeles
+    function copiarEmail() {
+      const email = "reichan2002@digitechfp.com";
+      const dummy = document.createElement("input");
+      document.body.appendChild(dummy);
+      dummy.value = email;
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+
+      const feedback = document.getElementById("copy-feedback");
+      feedback.classList.remove("opacity-0");
+      feedback.classList.add("opacity-100");
+
+      setTimeout(() => {
+        feedback.classList.remove("opacity-100");
+        feedback.classList.add("opacity-0");
+      }, 2500);
+    }
+
+    // Filtrado de proyectos por categoría
+    function filtrarProyectos(categoria) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // Actualizar estilo botones
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-black', 'text-white');
+        btn.classList.add('bg-white', 'text-black');
+      });
+
+      event.target.classList.remove('bg-white', 'text-black');
+      event.target.classList.add('bg-black', 'text-white');
+
+      cards.forEach(card => {
+        if (categoria === 'todos' || card.classList.contains(categoria)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Interacción interactiva al hacer click en habilidades
+    function mostrarInfoSkill(nombre, descripcion) {
+      const titleElem = document.getElementById('skill-title');
+      const descElem = document.getElementById('skill-desc');
+      const box = document.getElementById('skill-detail-box');
+
+      titleElem.textContent = nombre;
+      descElem.textContent = descripcion;
+
+      box.classList.add('bg-yellow-200');
+      setTimeout(() => {
+        box.classList.remove('bg-yellow-200');
+      }, 300);
+    }
+
+    // Modal para Ver Demo
+    function mostrarDemoModal(proyecto) {
+      const modal = document.getElementById('demo-modal');
+      const title = document.getElementById('modal-title');
+      const content = document.getElementById('modal-content');
+
+      title.textContent = proyecto;
+
+      if (proyecto === 'Capsule Wardrobe') {
+        content.innerHTML = `
+          <p class="mb-2"><strong>¡Tu proyecto estrella está listo para enlazar!</strong></p>
+          <p>Puedes conectar este botón directamente con el enlace en vivo de tu aplicación alojada en Vercel, Netlify o un servidor VPS con tu base de datos MySQL.</p>
+          <div class="mt-3 p-3 bg-crema rounded-lg border border-black font-mono text-xs">
+            Estado: 🟢 Versión 1.0 lista para demostraciones en entrevistas.
+          </div>
+        `;
+      } else {
+        content.innerHTML = `
+          <p class="mb-2"><strong>Acceso a prototipo interactivo</strong></p>
+          <p>Este botón puede redirigir a un prototipo de Figma navegable o a la branch correspondiente en GitHub Pages.</p>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function cerrarDemoModal() {
+      document.getElementById('demo-modal').classList.add('hidden');
+    }
+
+    // Simulador de consola Java
+    function ejecutarSimuladorJava() {
+      const modal = document.getElementById('demo-modal');
+      const title = document.getElementById('modal-title');
+      const content = document.getElementById('modal-content');
+
+      title.textContent = "Java Console Test";
+      content.innerHTML = `
+        <div class="bg-black text-green-400 p-4 rounded-xl font-mono text-xs border border-gray-700 space-y-1">
+          <div>[INFO] Compilando con OpenJDK 17...</div>
+          <div>[OK] Clase WardrobeLogic.java analizada sin errores.</div>
+          <div class="text-yellow-300">&gt; Ejecutando algoritmo de combinaciones de prendas...</div>
+          <div class="text-cyan-400">&gt; 15 Outfits generados con éxito según paleta cromática.</div>
+          <div class="text-white mt-2">✨ Simulación de consola Java completada con éxito.</div>
+        </div>
+      `;
+      modal.classList.remove('hidden');
+    }
+
+    // Cerrar modal al hacer click fuera del cuadro
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('demo-modal');
+      if (e.target === modal) {
+        cerrarDemoModal();
+      }
+    });
+  </script>
+</body>
+</html>
